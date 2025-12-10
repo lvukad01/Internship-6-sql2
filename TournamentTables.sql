@@ -1,0 +1,33 @@
+--CREATE TABLES
+
+
+CREATE TABLE Teams
+(
+	Team_id SERIAL PRIMARY KEY,
+	Name VARCHAR(50) NOT NULL,
+	Country VARCHAR(50),
+	Contact VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE Players
+(
+	Player_id SERIAL PRIMARY KEY,
+	Name VARCHAR(50) NOT NULL,
+	Last_name VARCHAR(50) NOT NULL,
+	Birthday DATE NOT NULL CHECK(EXTRACT(Year FROM Birthday )  BETWEEN 1960 AND 2010),
+	Jersey INT NOT NULL UNIQUE,
+	Team_id REFERENCES Teams(Team_id)
+);
+
+ALTER TABLE Teams
+ADD COLUMN 	Captain_id INT NOT NULL REFERENCES Players(Player_id);
+
+CREATE TABLE Tournaments
+(
+	Tournament_id SERIAL PRIMARY KEY,
+	Name VARCHAR(50) NOT NULL,
+	Year INT NOT NULL CHECK(Year<2030 AND Year>1900),
+	Location VARCHAR(50),
+	Winner_id INT REFERENCES Teams(Team_id)
+);
