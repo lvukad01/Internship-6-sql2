@@ -79,11 +79,6 @@ WHERE tr.tournament_id=11 AND e.event_type='goal'
 GROUP BY t.name,p.name,p.last_name
 ORDER BY t.name;
 
-SELECT tr.tournament_id, * FROM events e
-JOIN matches m ON m.match_id=e.match_id
-JOIN tournaments tr ON tr.tournament_id=m.tournament_id
-WHERE e.event_type='goal'
-ORDER BY tr.tournament_id;
 
 --9. Prikaži tablicu bodova za određeni turnir
 --Za svaki tim izlistati broj osvojenih bodova, gol, razliku i plasman.
@@ -94,3 +89,28 @@ JOIN teams t ON t.team_id=tt.team_id
 JOIN tournaments tr ON tr.tournament_id=tt.tournament_id
 WHERE tr.tournament_id=33;
 
+--10. Prikaži sve finalne utakmice u povijesti
+--Izvući utakmice čija je faza “finale” i prikazati pobjednika.
+
+SELECT tr.name,tr.year AS tournament, t.name AS winner
+FROM matches m
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+JOIN teams t ON t.team_id=tr.winner_id
+WHERE m.type='Final'
+ORDER BY tr.name,tr.year;
+
+--11. Prikaži sve vrste utakmica
+--Npr. grupna faza, četvrtfinale, polufinale, finale – s brojem utakmica te vrste.
+
+SELECT m.type, COUNT(*) AS number_of_matches
+FROM matches m
+GROUP BY m.type;
+
+--12. Prikaži sve utakmice odigrane na određeni datum
+--Prikazati timove, vrstu utakmice i rezultat.
+
+SELECT t1.name AS team1, t2.name AS team2, m.type AS match_type, CONCAT(m.team1_score, '-', m.team2_score) AS result
+FROM matches m
+JOIN teams t1 ON t1.team_id=m.team1_id
+JOIN teams t2 ON t2.team_id=m.team2_id
+WHERE m.match_datetime='2005-10-03';
