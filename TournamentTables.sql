@@ -28,8 +28,6 @@ CREATE TABLE Players
 	UNIQUE(Team_id, Jersey)
 );
 
-ALTER TABLE Teams
-ADD COLUMN 	Captain_id INT REFERENCES Players(Player_id);
 
 CREATE TABLE Tournaments
 (
