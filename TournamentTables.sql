@@ -63,9 +63,9 @@ CREATE TABLE Matches(
 	Team2_id INT REFERENCES Teams(team_id),
 	Referee_id INT REFERENCES Referees(Referee_id),
 	Tournament_id INT REFERENCES Tournaments(Tournament_id),
-	Match_datetime TIMESTAMPTZ,
-	Team1_score INT DEFAULT 0,
-	Team2_score INT DEFAULT 0,
+	Match_datetime TIMESTAMP,
+	Team1_score INT DEFAULT 0 CHECK(Team1_score BETWEEN 0 AND 75),
+	Team2_score INT DEFAULT 0 CHECK(Team2_score BETWEEN 0 AND 75),
 	created_at TIMESTAMP DEFAULT now() NOT NULL,
 	updated_at TIMESTAMP DEFAULT now() NOT NULL,
 	CHECK (Team1_id <> Team2_id)
@@ -86,12 +86,12 @@ CREATE TABLE  Tournament_teams(
 	Tournament_id INT REFERENCES Tournaments(Tournament_id),
 	Team_id INT REFERENCES Teams(Team_id),
 	Place INT,
-	Points INT DEFAULT 0,
-	Goals_for INT DEFAULT 0,
-	Goals_against INT DEFAULT 0,
+	Points INT DEFAULT 0 CHECK(Points BETWEEN 0 AND 15),
+	Goals_for INT DEFAULT 0 CHECK(Goals_for BETWEEN 0 AND 1000),
+	Goals_against INT DEFAULT 0 CHECK(Goals_against BETWEEN 0 AND 1000),
 	Stage TournamentTeams_Stage NOT NULL,
-	created_at TIMESTAMPTZ DEFAULT now() NOT NULL,
-	updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+	created_at TIMESTAMP DEFAULT now() NOT NULL,
+	updated_at TIMESTAMP DEFAULT now() NOT NULL,
 	PRIMARY KEY (tournament_id, team_id)	
 );
 
