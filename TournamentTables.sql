@@ -96,3 +96,62 @@ CREATE TABLE  Tournament_teams(
 	updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
 	PRIMARY KEY (tournament_id, team_id)	
 );
+
+
+-- trigger for updated_at
+
+CREATE OR REPLACE FUNCTION set_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN 
+	NEW.updated_at=NOW();
+	RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_teams_updated
+BEFORE UPDATE ON Teams
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+CREATE TRIGGER trg_players_updated
+BEFORE UPDATE ON Players
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+
+
+CREATE TRIGGER trg_tournaments_updated
+BEFORE UPDATE ON Tournaments
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+
+
+CREATE TRIGGER trg_matchtypes_updated
+BEFORE UPDATE ON Matchtypes
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+
+
+CREATE TRIGGER trg_referees_updated
+BEFORE UPDATE ON Referees
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+
+CREATE TRIGGER trg_matches_updated
+BEFORE UPDATE ON Matches
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+
+CREATE TRIGGER trg_events_updated
+BEFORE UPDATE ON Events
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
+
+CREATE TRIGGER trg_tournament_teams_updated
+BEFORE UPDATE ON Tournament_teams
+FOR EACH ROW
+EXECUTE FUNCTION set_updated_at();
