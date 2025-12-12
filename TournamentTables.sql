@@ -2,7 +2,7 @@
 
 CREATE TYPE Events_type AS ENUM('goal','yellow_card','red_card');
 CREATE TYPE TournamentTeams_Stage AS ENUM('grupa','osmina','četvrtfinale','polufinale','finale');
-
+CREATE TYPE Matchtype AS ENUM('Group Stage', 'Quarterfinal', 'Semifinal', 'Final', 'Friendly', 'Playoff', 'Knockout', 'Exhibition', 'Round Robin', 'Third Place Match');
 
 CREATE TABLE Teams
 (
@@ -40,12 +40,6 @@ CREATE TABLE Tournaments
 	updated_at TIMESTAMP DEFAULT now() NOT NULL
 );
 
-CREATE TABLE Matchtypes (
-Matchtype_id SERIAL PRIMARY KEY,
-Name VARCHAR(80) NOT NULL,
-created_at TIMESTAMP DEFAULT now() NOT NULL,
-updated_at TIMESTAMP DEFAULT now() NOT NULL
-);
 
 CREATE TABLE Referees (
 Referee_id SERIAL PRIMARY KEY,
@@ -58,7 +52,7 @@ updated_at TIMESTAMP DEFAULT now() NOT NULL
 
 CREATE TABLE Matches(
 	Match_id SERIAL PRIMARY KEY,
-	Matchtype_id INT REFERENCES Matchtypes(Matchtype_id),
+	Type Matchtype NOT NULL,
 	Team1_id INT REFERENCES Teams(team_id),
 	Team2_id INT REFERENCES Teams(team_id),
 	Referee_id INT REFERENCES Referees(Referee_id),
@@ -72,13 +66,13 @@ CREATE TABLE Matches(
 );
 
 CREATE TABLE Events (
-Event_id SERIAL PRIMARY KEY,
-Match_id INT REFERENCES Matches(Match_id),
-Player_id INT REFERENCES Players(Player_id),
-Event_type Events_type NOT NULL, 
-minute INT,
-created_at TIMESTAMP DEFAULT now() NOT NULL,
-updated_at TIMESTAMP DEFAULT now() NOT NULL
+	Event_id SERIAL PRIMARY KEY,
+	Match_id INT REFERENCES Matches(Match_id),
+	Player_id INT REFERENCES Players(Player_id),
+	Event_type Events_type NOT NULL, 
+	minute INT,
+	created_at TIMESTAMP DEFAULT now() NOT NULL,
+	updated_at TIMESTAMP DEFAULT now() NOT NULL
 );
 
 
@@ -120,13 +114,6 @@ EXECUTE FUNCTION set_updated_at();
 
 CREATE TRIGGER trg_tournaments_updated
 BEFORE UPDATE ON Tournaments
-FOR EACH ROW
-EXECUTE FUNCTION set_updated_at();
-
-
-
-CREATE TRIGGER trg_matchtypes_updated
-BEFORE UPDATE ON Matchtypes
 FOR EACH ROW
 EXECUTE FUNCTION set_updated_at();
 
