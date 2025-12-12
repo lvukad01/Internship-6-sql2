@@ -79,7 +79,7 @@ CREATE TABLE Events (
 CREATE TABLE  Tournament_teams(
 	Tournament_id INT REFERENCES Tournaments(Tournament_id),
 	Team_id INT REFERENCES Teams(Team_id),
-	Place INT,
+	Place INT NOT NULL CHECK(Place BETWEEN 0 AND 65),
 	Points INT DEFAULT 0 CHECK(Points BETWEEN 0 AND 15),
 	Goals_for INT DEFAULT 0 CHECK(Goals_for BETWEEN 0 AND 1000),
 	Goals_against INT DEFAULT 0 CHECK(Goals_against BETWEEN 0 AND 1000),
