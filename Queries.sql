@@ -45,7 +45,7 @@ ORDER BY tr.name;
 --6. Izlistati sve događaje (golovi, kartoni) za određenu utakmicu
 --Prikazati tip događaja, ime igrača koji ga je ostvario.
 
-SELECT t.name AS tournament, m.type AS match_type, e.Event_type, p.name AS player 
+SELECT t.name AS tournament, m.type AS match_type, e.Event_type, CONCAT(p.name, ' ', p.last_name) AS player
 FROM events e
 JOIN matches m ON m.match_id=e.match_id
 JOIN tournaments t ON t.tournament_id=m.tournament_id
@@ -53,4 +53,44 @@ JOIN players p ON p.player_id =e.player_id
 WHERE m.match_id=273;
 
 
---
+--7. Prikaži sve igrače koji su dobili žuti ili crveni karton na cijelom turniru
+--S navedenim timom, utakmicom i minutom.
+
+SELECT CONCAT(p.name, ' ', p.last_name) AS player, t.name AS Team, m.type AS match_type, e.event_type, e.minute
+FROM events e
+JOIN matches m ON m.match_id=e.match_id
+JOIN players p ON p.player_id=e.player_id
+JOIN teams t ON t.team_id=p.team_id
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+WHERE tr.tournament_id=11
+ORDER BY t.team_id;
+
+
+--8. Prikaži sve strijelce turnira
+--Izvući igrače koji su postigli pogodak, broj golova te tim.
+
+SELECT t.name AS team, CONCAT(p.name, ' ', p.last_name) AS player, COUNT(*) AS goals
+FROM events e
+JOIN players p ON p.player_id=e.player_id
+JOIN teams t ON t.team_id=p.team_id
+JOIN matches m ON m.match_id=e.match_id
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+WHERE tr.tournament_id=11 AND e.event_type='goal'
+GROUP BY t.name,p.name,p.last_name
+ORDER BY t.name;
+
+SELECT tr.tournament_id, * FROM events e
+JOIN matches m ON m.match_id=e.match_id
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+WHERE e.event_type='goal'
+ORDER BY tr.tournament_id;
+
+--9. Prikaži tablicu bodova za određeni turnir
+--Za svaki tim izlistati broj osvojenih bodova, gol, razliku i plasman.
+
+SELECT t.name AS team, tt.points, tt.goals_for AS goals, (tt.goals_for-goals_against) AS goal_difference,tt.place
+FROM tournament_teams tt
+JOIN teams t ON t.team_id=tt.team_id
+JOIN tournaments tr ON tr.tournament_id=tt.tournament_id
+WHERE tr.tournament_id=33;
+

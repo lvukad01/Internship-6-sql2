@@ -172,7 +172,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 963, 72, 498, 166, '2021-04-23', 19, 49);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 190, 469, 981, 280, '2023-04-19', 52, 47);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 822, 569, 396, 319, '2018-07-22', 8, 57);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 899, 812, 958, 125, '2022-05-11', 71, 41);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 899, 812, 958, 11, '2022-05-11', 71, 41);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Group Stage', 668, 259, 215, 184, '2017-09-15', 32, 47);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Third Place Match', 987, 743, 279, 393, '2016-08-23', 38, 47);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Third Place Match', 552, 958, 904, 423, '2022-09-02', 45, 31);
@@ -297,7 +297,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 946, 719, 957, 349, '2024-11-20', 63, 38);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Group Stage', 225, 248, 721, 390, '2024-03-26', 29, 33);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 152, 969, 917, 70, '2015-04-09', 36, 58);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Third Place Match', 675, 795, 256, 341, '2024-01-21', 74, 5);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Third Place Match', 675, 795, 256, 11, '2024-01-21', 74, 5);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Round Robin', 726, 623, 480, 339, '2021-04-25', 47, 68);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 69, 472, 816, 266, '2016-09-14', 43, 37);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Friendly', 902, 723, 387, 400, '2024-07-12', 51, 74);
@@ -377,7 +377,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Semifinal', 297, 835, 861, 35, '2024-08-18', 25, 17);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Group Stage', 387, 210, 110, 376, '2025-08-10', 19, 33);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 232, 494, 243, 327, '2018-12-05', 1, 2);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Exhibition', 819, 392, 483, 266, '2024-09-27', 54, 51);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Exhibition', 819, 392, 483, 11, '2024-09-27', 54, 51);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Group Stage', 697, 135, 352, 163, '2021-03-26', 71, 3);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Exhibition', 426, 183, 47, 197, '2023-03-16', 36, 13);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 73, 595, 343, 405, '2017-01-26', 45, 58);
