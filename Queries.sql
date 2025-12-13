@@ -1,4 +1,5 @@
 --1. Prikaži popis svih turnira
+--Prikazati naziv turnira, godinu održavanja, mjesto i ukupnog pobjednika.
 
 SELECT t.name, t.year, t.location, tm.name AS winner_id 
 FROM Tournaments t
@@ -6,6 +7,7 @@ LEFT JOIN  Teams tm on t.winner_id=tm.team_id;
 
 
 --2. Prikaži sve timove koji sudjeluju na određenom turniru
+--Za zadani turnir izlistati sve timove i predstavnika tima.
 
 SELECT tt.team_id, te.name AS team_name, te.contact
 FROM Tournament_Teams tt
@@ -13,12 +15,14 @@ LEFT JOIN Teams te ON tt.team_id = te.team_id
 WHERE tt.tournament_id = 2;
 
 --3. Prikaži sve igrače iz određenog tima
+--Izvući popis svih igrača, njihove godine rođenja i ostale podatke.
 
 SELECT p.name, p.last_name, EXTRACT(Year FROM p.Birthday), p.jersey 
 FROM Players p
 WHERE p.team_id=900;
 
 --4. Prikaži sve utakmice određenog turnira
+--Prikazati datume, vrijeme, timove koji igraju, vrstu utakmice i rezultat.
 
 SELECT m.Match_datetime AS Date_and_time, t1.name AS team1, t2.name AS team2, m.type, CONCAT(m.team1_score, '-', m.team2_score) AS result
 FROM Matches m
@@ -27,6 +31,7 @@ JOIN teams t2 ON t2.team_id=m.team2_id
 WHERE m.tournament_id=30;
 
 --5. Prikaži sve utakmice određenog tima kroz sve turnire
+--Izvući sve utakmice u kojima je tim sudjelovao, s rezultatima i fazama natjecanja.
 
 SELECT 
     m.match_datetime,tr.name AS tournament,
@@ -142,6 +147,8 @@ WHERE t.team_id=85;
 
 --15. Pronađi pobjednika turnira na temelju odigranih utakmica
 --Izvući tim s najviše bodova ili pobjednika finala, ovisno o strukturi turnira.
+
+
 SELECT tr.name, tr.year,
     CASE 
         WHEN m.team1_score > m.team2_score THEN t1.name
