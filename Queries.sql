@@ -145,7 +145,6 @@ WHERE t.team_id=85;
 --15. Pronađi pobjednika turnira na temelju odigranih utakmica
 --Izvući tim s najviše bodova ili pobjednika finala, ovisno o strukturi turnira.
 
-EXPLAIN ANALYZE
 SELECT tr.name, tr.year,
     CASE 
         WHEN m.team1_score > m.team2_score THEN t1.name
@@ -157,9 +156,8 @@ JOIN teams t2 ON t2.team_id=m.team2_id
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
 WHERE m.type = 'Final';
 
-
 --16. Za svaki turnir ispiši broj timova i igrača
-EXPLAIN ANALYZE
+
 SELECT 
     tr.tournament_id,
     tr.name,
@@ -173,7 +171,7 @@ GROUP BY tr.tournament_id, tr.name;
 
 --17. Najbolji strijelci po timu
 --Za svaki tim ispiši najboljeg strijelca na svim turnirima gdje je taj tim sudjelovao
-EXPLAIN ANALYZE
+
 SELECT 
     t.team_id,
     t.name AS team,
@@ -189,12 +187,11 @@ ORDER BY goals DESC,t.team_id;
 
 --18. Utakmice nekog suca
 --Za određenog sudca ispiši sve utakmice na kojima je sudio
-EXPLAIN ANALYZE
+
 SELECT tr.name as tournament, tr.year, m.type
 FROM matches m
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
 JOIN referees r ON r.referee_id=m.referee_id
 WHERE r.referee_id=391;
-
 
 

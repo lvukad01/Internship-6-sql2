@@ -190,3 +190,70 @@ CREATE INDEX idx_tournament_teams_team_id
 ON tournament_teams(team_id);
 
 
+--15. Pronađi pobjednika turnira na temelju odigranih utakmica
+--Izvući tim s najviše bodova ili pobjednika finala, ovisno o strukturi turnira.
+
+EXPLAIN ANALYZE
+SELECT tr.name, tr.year,
+    CASE 
+        WHEN m.team1_score > m.team2_score THEN t1.name
+        ELSE t2.name
+    END AS winner
+FROM Matches m
+JOIN teams t1 ON t1.team_id=m.team1_id
+JOIN teams t2 ON t2.team_id=m.team2_id
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+WHERE m.type = 'Final';
+
+--Ne treba dodavati novi index, već imamo potrebni index
+
+
+--16. Za svaki turnir ispiši broj timova i igrača
+EXPLAIN ANALYZE
+SELECT 
+    tr.tournament_id,
+    tr.name,
+    COUNT(DISTINCT tt.team_id) AS team_count,
+    COUNT(DISTINCT p.player_id) AS player_count
+FROM Tournaments tr
+LEFT JOIN Tournament_Teams tt ON tr.tournament_id = tt.tournament_id
+LEFT JOIN Players p ON p.team_id = tt.team_id
+GROUP BY tr.tournament_id, tr.name; 
+
+--već imamo potrebne indexe
+
+
+--17. Najbolji strijelci po timu
+--Za svaki tim ispiši najboljeg strijelca na svim turnirima gdje je taj tim sudjelovao
+EXPLAIN ANALYZE
+SELECT 
+    t.team_id,
+    t.name AS team,
+    p.player_id,
+    CONCAT(p.name, ' ', p.last_name) AS player,
+    COUNT(e.event_id) AS goals
+FROM Teams t
+JOIN Players p ON p.team_id = t.team_id
+LEFT JOIN Events e ON e.player_id = p.player_id AND e.event_type = 'goal'
+GROUP BY t.team_id, t.name, p.player_id, player
+ORDER BY goals DESC,t.team_id;
+
+--već imamo potrebne indexe
+
+--18. Utakmice nekog suca
+--Za određenog sudca ispiši sve utakmice na kojima je sudio
+EXPLAIN ANALYZE
+SELECT tr.name as tournament, tr.year, m.type
+FROM matches m
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+JOIN referees r ON r.referee_id=m.referee_id
+WHERE r.referee_id=391;
+
+CREATE INDEX idx_matches_referee_id
+ON matches(referee_id);
+
+
+
+
+
+
