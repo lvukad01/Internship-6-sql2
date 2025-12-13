@@ -1,6 +1,5 @@
 --1. Prikaži popis svih turnira
 --Prikazati naziv turnira, godinu održavanja, mjesto i ukupnog pobjednika.
-
 SELECT t.name, t.year, t.location, tm.name AS winner_id 
 FROM Tournaments t
 LEFT JOIN  Teams tm on t.winner_id=tm.team_id;
@@ -74,6 +73,7 @@ ORDER BY t.team_id;
 --8. Prikaži sve strijelce turnira
 --Izvući igrače koji su postigli pogodak, broj golova te tim.
 
+EXPLAIN ANALYZE
 SELECT t.name AS team, CONCAT(p.name, ' ', p.last_name) AS player, COUNT(*) AS goals
 FROM events e
 JOIN players p ON p.player_id=e.player_id
@@ -87,7 +87,6 @@ ORDER BY t.name;
 
 --9. Prikaži tablicu bodova za određeni turnir
 --Za svaki tim izlistati broj osvojenih bodova, gol, razliku i plasman.
-
 SELECT t.name AS team, tt.points, tt.goals_for AS goals, (tt.goals_for-goals_against) AS goal_difference,tt.place
 FROM tournament_teams tt
 JOIN teams t ON t.team_id=tt.team_id
@@ -96,7 +95,6 @@ WHERE tr.tournament_id=33;
 
 --10. Prikaži sve finalne utakmice u povijesti
 --Izvući utakmice čija je faza “finale” i prikazati pobjednika.
-
 SELECT tr.name AS tournament,tr.year, t.name AS winner
 FROM matches m
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
@@ -104,16 +102,15 @@ JOIN teams t ON t.team_id=tr.winner_id
 WHERE m.type='Final'
 ORDER BY tr.name,tr.year;
 
+
 --11. Prikaži sve vrste utakmica
 --Npr. grupna faza, četvrtfinale, polufinale, finale – s brojem utakmica te vrste.
-
 SELECT m.type, COUNT(*) AS number_of_matches
 FROM matches m
 GROUP BY m.type;
 
 --12. Prikaži sve utakmice odigrane na određeni datum
 --Prikazati timove, vrstu utakmice i rezultat.
-
 SELECT t1.name AS team1, t2.name AS team2, m.type AS match_type, CONCAT(m.team1_score, '-', m.team2_score) AS result
 FROM matches m
 JOIN teams t1 ON t1.team_id=m.team1_id
@@ -123,7 +120,7 @@ WHERE m.match_datetime='2005-10-03';
 --13. Prikaži igrače koji su postigli najviše golova na određenom turniru
 --Sortirati po broju golova silazno.
 
-
+EXPLAIN ANALYZE
 SELECT p.player_id, CONCAT(p.name, ' ', p.last_name) AS player, t.name AS team, COUNT (*) AS GOALS
 FROM Events e
 JOIN players p ON p.player_id=e.player_id
@@ -137,7 +134,6 @@ ORDER BY GOALS DESC;
 --14. Prikaži sve turnire na kojima je određeni tim sudjelovao
 --Za svaki turnir navesti godinu održavanja i ostvareni plasman.
 
-
 SELECT tr.name AS tournament, tr.year, tt.place
 FROM tournament_teams tt
 JOIN tournaments tr ON tr.tournament_id=tt.tournament_id
@@ -145,9 +141,9 @@ JOIN teams t ON t.team_id=tt.team_id
 WHERE t.team_id=85;
 
 
+
 --15. Pronađi pobjednika turnira na temelju odigranih utakmica
 --Izvući tim s najviše bodova ili pobjednika finala, ovisno o strukturi turnira.
-
 
 SELECT tr.name, tr.year,
     CASE 
@@ -159,7 +155,6 @@ JOIN teams t1 ON t1.team_id=m.team1_id
 JOIN teams t2 ON t2.team_id=m.team2_id
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
 WHERE m.type = 'Final';
-
 
 --16. Za svaki turnir ispiši broj timova i igrača
 
@@ -198,6 +193,5 @@ FROM matches m
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
 JOIN referees r ON r.referee_id=m.referee_id
 WHERE r.referee_id=391;
-
 
 
