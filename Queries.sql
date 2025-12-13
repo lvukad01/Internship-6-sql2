@@ -32,7 +32,6 @@ WHERE m.tournament_id=30;
 --5. Prikaži sve utakmice određenog tima kroz sve turnire
 --Izvući sve utakmice u kojima je tim sudjelovao, s rezultatima i fazama natjecanja.
 
-EXPLAIN ANALYZE
 SELECT 
     m.match_datetime,tr.name AS tournament,
 	m.type AS match_type,
@@ -50,7 +49,6 @@ ORDER BY tr.name;
 --6. Izlistati sve događaje (golovi, kartoni) za određenu utakmicu
 --Prikazati tip događaja, ime igrača koji ga je ostvario.
 
-EXPLAIN ANALYZE
 SELECT t.name AS tournament, m.type AS match_type, e.Event_type, CONCAT(p.name, ' ', p.last_name) AS player
 FROM events e
 JOIN matches m ON m.match_id=e.match_id
@@ -61,7 +59,7 @@ WHERE m.match_id=273;
 
 --7. Prikaži sve igrače koji su dobili žuti ili crveni karton na cijelom turniru
 --S navedenim timom, utakmicom i minutom.
-EXPLAIN ANALYZE
+
 SELECT CONCAT(p.name, ' ', p.last_name) AS player, t.name AS Team, m.type AS match_type, e.event_type, e.minute
 FROM events e
 JOIN matches m ON m.match_id=e.match_id
@@ -89,7 +87,6 @@ ORDER BY t.name;
 
 --9. Prikaži tablicu bodova za određeni turnir
 --Za svaki tim izlistati broj osvojenih bodova, gol, razliku i plasman.
-EXPLAIN ANALYZE
 SELECT t.name AS team, tt.points, tt.goals_for AS goals, (tt.goals_for-goals_against) AS goal_difference,tt.place
 FROM tournament_teams tt
 JOIN teams t ON t.team_id=tt.team_id
@@ -98,7 +95,6 @@ WHERE tr.tournament_id=33;
 
 --10. Prikaži sve finalne utakmice u povijesti
 --Izvući utakmice čija je faza “finale” i prikazati pobjednika.
-EXPLAIN ANALYZE
 SELECT tr.name AS tournament,tr.year, t.name AS winner
 FROM matches m
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
@@ -106,16 +102,15 @@ JOIN teams t ON t.team_id=tr.winner_id
 WHERE m.type='Final'
 ORDER BY tr.name,tr.year;
 
+
 --11. Prikaži sve vrste utakmica
 --Npr. grupna faza, četvrtfinale, polufinale, finale – s brojem utakmica te vrste.
-EXPLAIN ANALYZE
 SELECT m.type, COUNT(*) AS number_of_matches
 FROM matches m
 GROUP BY m.type;
 
 --12. Prikaži sve utakmice odigrane na određeni datum
 --Prikazati timove, vrstu utakmice i rezultat.
-EXPLAIN ANALYZE
 SELECT t1.name AS team1, t2.name AS team2, m.type AS match_type, CONCAT(m.team1_score, '-', m.team2_score) AS result
 FROM matches m
 JOIN teams t1 ON t1.team_id=m.team1_id
@@ -139,12 +134,12 @@ ORDER BY GOALS DESC;
 --14. Prikaži sve turnire na kojima je određeni tim sudjelovao
 --Za svaki turnir navesti godinu održavanja i ostvareni plasman.
 
-EXPLAIN ANALYZE
 SELECT tr.name AS tournament, tr.year, tt.place
 FROM tournament_teams tt
 JOIN tournaments tr ON tr.tournament_id=tt.tournament_id
 JOIN teams t ON t.team_id=tt.team_id
 WHERE t.team_id=85;
+
 
 
 --15. Pronađi pobjednika turnira na temelju odigranih utakmica
