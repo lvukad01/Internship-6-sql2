@@ -92,7 +92,7 @@ WHERE tr.tournament_id=33;
 --10. Prikaži sve finalne utakmice u povijesti
 --Izvući utakmice čija je faza “finale” i prikazati pobjednika.
 
-SELECT tr.name,tr.year AS tournament, t.name AS winner
+SELECT tr.name AS tournament,tr.year, t.name AS winner
 FROM matches m
 JOIN tournaments tr ON tr.tournament_id=m.tournament_id
 JOIN teams t ON t.team_id=tr.winner_id
@@ -114,3 +114,83 @@ FROM matches m
 JOIN teams t1 ON t1.team_id=m.team1_id
 JOIN teams t2 ON t2.team_id=m.team2_id
 WHERE m.match_datetime='2005-10-03';
+
+--13. Prikaži igrače koji su postigli najviše golova na određenom turniru
+--Sortirati po broju golova silazno.
+
+
+SELECT p.player_id, CONCAT(p.name, ' ', p.last_name) AS player, t.name AS team, COUNT (*) AS GOALS
+FROM Events e
+JOIN players p ON p.player_id=e.player_id
+JOIN matches m ON m.match_id=e.match_id
+JOIN teams t ON t.team_id=p.team_id
+WHERE m.tournament_id=11
+GROUP BY p.player_id, player,t.name
+ORDER BY GOALS DESC;
+
+
+--14. Prikaži sve turnire na kojima je određeni tim sudjelovao
+--Za svaki turnir navesti godinu održavanja i ostvareni plasman.
+
+
+SELECT tr.name AS tournament, tr.year, tt.place
+FROM tournament_teams tt
+JOIN tournaments tr ON tr.tournament_id=tt.tournament_id
+JOIN teams t ON t.team_id=tt.team_id
+WHERE t.team_id=85;
+
+
+--15. Pronađi pobjednika turnira na temelju odigranih utakmica
+--Izvući tim s najviše bodova ili pobjednika finala, ovisno o strukturi turnira.
+SELECT tr.name, tr.year,
+    CASE 
+        WHEN m.team1_score > m.team2_score THEN t1.name
+        ELSE t2.name
+    END AS winner
+FROM Matches m
+JOIN teams t1 ON t1.team_id=m.team1_id
+JOIN teams t2 ON t2.team_id=m.team2_id
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+WHERE m.type = 'Final';
+
+
+--16. Za svaki turnir ispiši broj timova i igrača
+
+SELECT 
+    tr.tournament_id,
+    tr.name,
+    COUNT(DISTINCT tt.team_id) AS team_count,
+    COUNT(DISTINCT p.player_id) AS player_count
+FROM Tournaments tr
+LEFT JOIN Tournament_Teams tt ON tr.tournament_id = tt.tournament_id
+LEFT JOIN Players p ON p.team_id = tt.team_id
+GROUP BY tr.tournament_id, tr.name; 
+
+
+--17. Najbolji strijelci po timu
+--Za svaki tim ispiši najboljeg strijelca na svim turnirima gdje je taj tim sudjelovao
+
+SELECT 
+    t.team_id,
+    t.name AS team,
+    p.player_id,
+    CONCAT(p.name, ' ', p.last_name) AS player,
+    COUNT(e.event_id) AS goals
+FROM Teams t
+JOIN Players p ON p.team_id = t.team_id
+LEFT JOIN Events e ON e.player_id = p.player_id AND e.event_type = 'goal'
+GROUP BY t.team_id, t.name, p.player_id, player
+ORDER BY goals DESC,t.team_id;
+
+
+--18. Utakmice nekog suca
+--Za određenog sudca ispiši sve utakmice na kojima je sudio
+
+SELECT tr.name as tournament, tr.year, m.type
+FROM matches m
+JOIN tournaments tr ON tr.tournament_id=m.tournament_id
+JOIN referees r ON r.referee_id=m.referee_id
+WHERE r.referee_id=391;
+
+
+

@@ -14,7 +14,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (120, 517, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (196, 500, 'yellow_card', 50);
 insert into Events (Match_id, Player_id, Event_type, minute) values (843, 553, 'yellow_card', 74);
 insert into Events (Match_id, Player_id, Event_type, minute) values (614, 391, 'goal', 39);
-insert into Events (Match_id, Player_id, Event_type, minute) values (14, 809, 'goal', 108);
+insert into Events (Match_id, Player_id, Event_type, minute) values (14, 51, 'goal', 108);
 insert into Events (Match_id, Player_id, Event_type, minute) values (422, 305, 'red_card', 28);
 insert into Events (Match_id, Player_id, Event_type, minute) values (326, 351, 'goal', 123);
 insert into Events (Match_id, Player_id, Event_type, minute) values (903, 403, 'yellow_card', 30);
@@ -32,7 +32,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (16, 195, 'r
 insert into Events (Match_id, Player_id, Event_type, minute) values (406, 702, 'goal', 75);
 insert into Events (Match_id, Player_id, Event_type, minute) values (983, 424, 'yellow_card', 111);
 insert into Events (Match_id, Player_id, Event_type, minute) values (800, 64, 'red_card', 104);
-insert into Events (Match_id, Player_id, Event_type, minute) values (617, 868, 'goal', 53);
+insert into Events (Match_id, Player_id, Event_type, minute) values (617, 51, 'goal', 53);
 insert into Events (Match_id, Player_id, Event_type, minute) values (250, 131, 'yellow_card', 84);
 insert into Events (Match_id, Player_id, Event_type, minute) values (482, 614, 'goal', 129);
 insert into Events (Match_id, Player_id, Event_type, minute) values (624, 35, 'goal', 11);
@@ -45,7 +45,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (333, 813, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (942, 897, 'red_card', 37);
 insert into Events (Match_id, Player_id, Event_type, minute) values (9, 606, 'goal', 32);
 insert into Events (Match_id, Player_id, Event_type, minute) values (323, 717, 'goal', 46);
-insert into Events (Match_id, Player_id, Event_type, minute) values (361, 549, 'goal', 14);
+insert into Events (Match_id, Player_id, Event_type, minute) values (361, 74, 'goal', 14);
 insert into Events (Match_id, Player_id, Event_type, minute) values (43, 978, 'yellow_card', 105);
 insert into Events (Match_id, Player_id, Event_type, minute) values (757, 312, 'goal', 42);
 insert into Events (Match_id, Player_id, Event_type, minute) values (375, 153, 'yellow_card', 53);
@@ -61,7 +61,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (278, 122, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (209, 194, 'yellow_card', 32);
 insert into Events (Match_id, Player_id, Event_type, minute) values (627, 250, 'yellow_card', 18);
 insert into Events (Match_id, Player_id, Event_type, minute) values (986, 89, 'goal', 15);
-insert into Events (Match_id, Player_id, Event_type, minute) values (986, 198, 'yellow_card', 78);
+insert into Events (Match_id, Player_id, Event_type, minute) values (986, 89, 'goal', 78);
 insert into Events (Match_id, Player_id, Event_type, minute) values (774, 567, 'goal', 6);
 insert into Events (Match_id, Player_id, Event_type, minute) values (132, 208, 'yellow_card', 34);
 insert into Events (Match_id, Player_id, Event_type, minute) values (736, 323, 'goal', 82);
@@ -86,7 +86,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (817, 744, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (166, 579, 'goal', 117);
 insert into Events (Match_id, Player_id, Event_type, minute) values (39, 374, 'red_card', 60);
 insert into Events (Match_id, Player_id, Event_type, minute) values (187, 925, 'yellow_card', 33);
-insert into Events (Match_id, Player_id, Event_type, minute) values (67, 718, 'goal', 23);
+insert into Events (Match_id, Player_id, Event_type, minute) values (67, 58, 'goal', 23);
 insert into Events (Match_id, Player_id, Event_type, minute) values (609, 32, 'yellow_card', 97);
 insert into Events (Match_id, Player_id, Event_type, minute) values (838, 616, 'red_card', 47);
 insert into Events (Match_id, Player_id, Event_type, minute) values (351, 130, 'yellow_card', 15);
@@ -120,7 +120,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (136, 959, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (988, 81, 'red_card', 71);
 insert into Events (Match_id, Player_id, Event_type, minute) values (979, 942, 'goal', 0);
 insert into Events (Match_id, Player_id, Event_type, minute) values (329, 639, 'goal', 5);
-insert into Events (Match_id, Player_id, Event_type, minute) values (258, 674, 'goal', 2);
+insert into Events (Match_id, Player_id, Event_type, minute) values (258, 51, 'goal', 2);
 insert into Events (Match_id, Player_id, Event_type, minute) values (101, 128, 'yellow_card', 59);
 insert into Events (Match_id, Player_id, Event_type, minute) values (86, 564, 'yellow_card', 28);
 insert into Events (Match_id, Player_id, Event_type, minute) values (479, 531, 'yellow_card', 113);
@@ -170,7 +170,7 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (569, 957, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (770, 858, 'goal', 118);
 insert into Events (Match_id, Player_id, Event_type, minute) values (304, 891, 'red_card', 23);
 insert into Events (Match_id, Player_id, Event_type, minute) values (965, 400, 'yellow_card', 78);
-insert into Events (Match_id, Player_id, Event_type, minute) values (92, 728, 'goal', 111);
+insert into Events (Match_id, Player_id, Event_type, minute) values (92, 858, 'goal', 111);
 insert into Events (Match_id, Player_id, Event_type, minute) values (399, 901, 'yellow_card', 15);
 insert into Events (Match_id, Player_id, Event_type, minute) values (120, 240, 'red_card', 115);
 insert into Events (Match_id, Player_id, Event_type, minute) values (942, 437, 'yellow_card', 120);
@@ -202,11 +202,11 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (373, 480, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (59, 88, 'red_card', 130);
 insert into Events (Match_id, Player_id, Event_type, minute) values (837, 169, 'red_card', 117);
 insert into Events (Match_id, Player_id, Event_type, minute) values (481, 145, 'yellow_card', 17);
-insert into Events (Match_id, Player_id, Event_type, minute) values (81, 396, 'goal', 1);
+insert into Events (Match_id, Player_id, Event_type, minute) values (81, 858, 'goal', 1);
 insert into Events (Match_id, Player_id, Event_type, minute) values (67, 791, 'red_card', 14);
 insert into Events (Match_id, Player_id, Event_type, minute) values (472, 786, 'red_card', 73);
 insert into Events (Match_id, Player_id, Event_type, minute) values (950, 443, 'goal', 53);
-insert into Events (Match_id, Player_id, Event_type, minute) values (887, 411, 'yellow_card', 60);
+insert into Events (Match_id, Player_id, Event_type, minute) values (887, 411, 'goal', 60);
 insert into Events (Match_id, Player_id, Event_type, minute) values (837, 884, 'goal', 65);
 insert into Events (Match_id, Player_id, Event_type, minute) values (962, 84, 'yellow_card', 6);
 insert into Events (Match_id, Player_id, Event_type, minute) values (574, 892, 'goal', 83);
@@ -260,13 +260,13 @@ insert into Events (Match_id, Player_id, Event_type, minute) values (890, 487, '
 insert into Events (Match_id, Player_id, Event_type, minute) values (492, 154, 'red_card', 40);
 insert into Events (Match_id, Player_id, Event_type, minute) values (102, 318, 'red_card', 62);
 insert into Events (Match_id, Player_id, Event_type, minute) values (202, 980, 'red_card', 23);
-insert into Events (Match_id, Player_id, Event_type, minute) values (641, 66, 'red_card', 30);
+insert into Events (Match_id, Player_id, Event_type, minute) values (641, 66, 'goal', 30);
 insert into Events (Match_id, Player_id, Event_type, minute) values (523, 13, 'red_card', 66);
 insert into Events (Match_id, Player_id, Event_type, minute) values (275, 686, 'red_card', 107);
 insert into Events (Match_id, Player_id, Event_type, minute) values (674, 562, 'red_card', 62);
 insert into Events (Match_id, Player_id, Event_type, minute) values (65, 659, 'red_card', 18);
 insert into Events (Match_id, Player_id, Event_type, minute) values (913, 384, 'red_card', 66);
-insert into Events (Match_id, Player_id, Event_type, minute) values (327, 958, 'yellow_card', 37);
+insert into Events (Match_id, Player_id, Event_type, minute) values (327, 958, 'goal', 37);
 insert into Events (Match_id, Player_id, Event_type, minute) values (674, 916, 'red_card', 5);
 insert into Events (Match_id, Player_id, Event_type, minute) values (906, 543, 'yellow_card', 83);
 insert into Events (Match_id, Player_id, Event_type, minute) values (361, 391, 'red_card', 38);

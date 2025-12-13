@@ -266,7 +266,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Friendly', 769, 521, 788, 322, '2018-03-09', 19, 33);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Final', 69, 74, 759, 306, '2023-09-03', 33, 12);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 668, 731, 819, 83, '2005-10-03', 38, 10);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 882, 999, 827, 73, '2017-07-20', 18, 30);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 882, 999, 391, 73, '2017-07-20', 18, 30);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 888, 75, 737, 125, '2019-12-06', 54, 0);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 813, 995, 447, 425, '2021-04-19', 40, 73);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Third Place Match', 934, 195, 186, 230, '2015-09-13', 62, 75);
@@ -299,7 +299,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 152, 969, 917, 70, '2015-04-09', 36, 58);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Third Place Match', 675, 795, 256, 11, '2024-01-21', 74, 5);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Round Robin', 726, 623, 480, 339, '2021-04-25', 47, 68);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 69, 472, 816, 266, '2016-09-14', 43, 37);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 69, 472, 391, 266, '2016-09-14', 43, 37);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Friendly', 902, 723, 387, 400, '2024-07-12', 51, 74);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Group Stage', 655, 590, 958, 226, '2016-06-08', 57, 54);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 648, 396, 783, 174, '2015-03-15', 18, 6);
@@ -340,7 +340,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Exhibition', 682, 851, 854, 422, '2021-08-01', 10, 5);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Semifinal', 368, 985, 944, 250, '2022-09-06', 23, 26);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 624, 987, 757, 145, '2016-03-12', 5, 43);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 528, 905, 529, 42, '2025-05-29', 15, 1);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 528, 905, 391, 42, '2025-05-29', 15, 1);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 691, 232, 429, 118, '2019-10-27', 68, 16);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Group Stage', 140, 716, 787, 308, '2020-06-13', 67, 67);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Knockout', 207, 239, 874, 29, '2023-08-19', 51, 37);
@@ -370,7 +370,7 @@ insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Exhibition', 328, 359, 656, 35, '2019-01-11', 51, 16);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Semifinal', 647, 364, 599, 271, '2021-05-31', 15, 53);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Final', 456, 471, 839, 122, '2018-02-04', 35, 34);
-insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Friendly', 755, 834, 134, 348, '2024-04-24', 73, 19);
+insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Friendly', 755, 834, 391, 348, '2024-04-24', 73, 19);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Quarterfinal', 189, 177, 730, 263, '2016-12-01', 75, 18);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Friendly', 57, 254, 535, 434, '2020-06-03', 27, 52);
 insert into Matches (Type, Team1_id, Team2_id, Referee_id, Tournament_id, Match_datetime, Team1_score, Team2_score) values ('Playoff', 32, 445, 611, 110, '2019-11-27', 24, 69);
